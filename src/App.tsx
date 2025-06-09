@@ -1,5 +1,6 @@
 /**
  * Updated App component with scroll handling and blog post routes
+ * - Added new route for Branded Tokens feature page
  */
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
@@ -19,6 +20,7 @@ import UniversalCurrencyPage from './pages/features/UniversalCurrencyPage';
 import TokenizedRewardsPage from './pages/features/TokenizedRewardsPage';
 import POSIntegrationPage from './pages/features/POSIntegrationPage';
 import EmployeeRewardsPage from './pages/features/EmployeeRewardsPage';
+import BrandedTokensPage from './pages/features/BrandedTokensPage';
 import LoyaltyGrowthInsights from './pages/blog/LoyaltyGrowthInsights';
 import LoyaltyBehavioralDrivers from './pages/blog/LoyaltyBehavioralDrivers';
 import LoyaltyAppSecurity from './pages/blog/LoyaltyAppSecurity';
@@ -67,6 +69,7 @@ function App() {
         <Route path="/features/tokenized-rewards" element={<TokenizedRewardsPage />} />
         <Route path="/features/pos-integration" element={<POSIntegrationPage />} />
         <Route path="/features/employee-rewards" element={<EmployeeRewardsPage />} />
+        <Route path="/features/branded-tokens" element={<BrandedTokensPage />} />
         <Route path="/blog/loyalty-growth-insights" element={<LoyaltyGrowthInsights />} />
         <Route path="/blog/loyalty-behavioral-drivers" element={<LoyaltyBehavioralDrivers />} />
         <Route path="/blog/loyalty-app-security" element={<LoyaltyAppSecurity />} />

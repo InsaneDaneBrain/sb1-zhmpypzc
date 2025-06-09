@@ -3,6 +3,7 @@
  * - Added Back to Blog button
  * - Updated header image with new Unsplash URL
  * - Updated header image to use Pexels URL
+ * - Updated post date to May 31, 2025
  */
 import React from 'react';
 import { Calendar, ArrowLeft } from 'lucide-react';
@@ -39,7 +40,7 @@ const LoyaltyGrowthInsights: React.FC = () => {
               
               <div className="flex items-center text-text-secondary mb-4">
                 <Calendar size={16} className="mr-2" />
-                June 15, 2025
+                May 31, 2025
               </div>
               <h1 className="text-4xl md:text-5xl font-heading mb-6">
                 How Loyalty Programs Boost Business Growth: Insights from NielsenIQ
@@ -92,4 +93,4 @@ const LoyaltyGrowthInsights: React.FC = () => {
   );
 };
 
-export default LoyaltyGrowthInsights
+export default LoyaltyGrowthInsights;

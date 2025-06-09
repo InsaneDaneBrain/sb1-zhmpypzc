@@ -1,37 +1,26 @@
 /**
- * Enhanced VendorCTA section with ROI calculator and modern UI elements
- * - Added impact/ROI calculator with live metrics
- * - Updated layout with floating CTA button
- * - Enhanced benefit cards with icons and hover effects
- * - Improved responsive design
+ * Enhanced VendorCTA section with Loyalty Insights panel
+ * - Removed ROI calculator
+ * - Added Loyalty Insights panel with stats and blog links
+ * - Updated responsive design
+ * - Maintained existing benefit cards
  */
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Button from '../ui/Button';
-import Tilt from 'react-parallax-tilt';
 import { Settings, Rocket, BarChart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface VendorCTAProps {
   onApplyClick: () => void;
 }
 
 const VendorCTA: React.FC<VendorCTAProps> = ({ onApplyClick }) => {
-  const [monthlySales, setMonthlySales] = useState<number>(10000);
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const calculateMetrics = (sales: number) => {
-    return {
-      pointsIssued: sales,
-      giftCardLiability: (sales * 0.02).toFixed(2),
-      retentionLift: Math.min(15 + (sales / 10000), 25).toFixed(1)
-    };
-  };
-
-  const metrics = calculateMetrics(monthlySales);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -91,7 +80,7 @@ const VendorCTA: React.FC<VendorCTAProps> = ({ onApplyClick }) => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             {[
               {
-                icon: <Settings className="text-purple-400" size={24} />,
+                icon: <Settings className="text-purple-400\" size={24} />,
                 title: "Simple Setup",
                 description: "Go live in 30 min with zero dev"
               },
@@ -101,7 +90,7 @@ const VendorCTA: React.FC<VendorCTAProps> = ({ onApplyClick }) => {
                 description: "Pilot your first promo next week"
               },
               {
-                icon: <BarChart className="text-purple-400" size={24} />,
+                icon: <BarChart className="text-purple-400\" size={24} />,
                 title: "Full Control",
                 description: "Deep dive into customer analytics"
               }
@@ -123,68 +112,63 @@ const VendorCTA: React.FC<VendorCTAProps> = ({ onApplyClick }) => {
         </motion.div>
 
         <motion.div variants={itemVariants} className="relative">
-          <Tilt
-            tiltMaxAngleX={5}
-            tiltMaxAngleY={5}
-            perspective={1000}
-            scale={1}
-            transitionSpeed={1000}
-          >
-            <div className="bg-background-secondary rounded-xl overflow-hidden p-6 border border-gray-800">
-              <h4 className="text-xl font-heading mb-6">Projected Impact</h4>
-              
-              <div className="mb-6">
-                <label className="block text-sm text-text-secondary mb-2">
-                  Monthly Sales ($)
-                </label>
-                <input
-                  type="range"
-                  min="1000"
-                  max="100000"
-                  value={monthlySales}
-                  onChange={(e) => setMonthlySales(parseInt(e.target.value))}
-                  className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
-                />
-                <div className="text-right text-sm text-text-secondary mt-1">
-                  ${monthlySales.toLocaleString()}
-                </div>
+          <div className="bg-background-secondary rounded-xl p-6 space-y-4">
+            <h3 className="text-xl font-heading mb-2">Loyalty Insights + Data</h3>
+            <p className="text-text-secondary">
+              Learn how a well-designed loyalty program can drive sales, reduce breakage, and keep customers returning. Explore our research-backed insights:
+            </p>
+
+            <div className="bg-background/50 p-4 rounded-xl flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                <BarChart size={24} className="text-purple-400" />
               </div>
-
-              <div className="space-y-4">
-                <div className="p-4 rounded-lg bg-background/50">
-                  <div className="text-sm text-text-secondary mb-1">Points Issued</div>
-                  <div className="text-2xl font-heading text-white">
-                    {metrics.pointsIssued.toLocaleString()} BRP
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-background/50">
-                  <div className="text-sm text-text-secondary mb-1">Gift-card Liability Offloaded</div>
-                  <div className="text-2xl font-heading text-white">
-                    ${metrics.giftCardLiability} credit
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-lg bg-background/50">
-                  <div className="text-sm text-text-secondary mb-1">Estimated Retention Lift</div>
-                  <div className="text-2xl font-heading text-green-400">
-                    +{metrics.retentionLift}% returning visits
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <Button 
-                  variant="secondary" 
-                  size="lg" 
-                  className="w-full animate-pulse hover:animate-none"
-                  onClick={onApplyClick}
-                >
-                  Apply as Vendor
-                </Button>
+              <div>
+                <p className="font-heading mb-1">+12% Average Spend Lift</p>
+                <p className="text-text-secondary text-sm">
+                  Customers in a multi-vendor loyalty network spend 12% more per visit.{' '}
+                  <Link to="/blog/loyalty-growth-insights" className="text-purple-400 hover:text-purple-300">
+                    Read more →
+                  </Link>
+                </p>
               </div>
             </div>
-          </Tilt>
+
+            <div className="bg-background/50 p-4 rounded-xl flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                <Rocket size={24} className="text-purple-400" />
+              </div>
+              <div>
+                <p className="font-heading mb-1">+16% Return Rate Increase</p>
+                <p className="text-text-secondary text-sm">
+                  Pilot merchants see a 16% bump in repeat visits when engaging customers with tokenized rewards.{' '}
+                  <Link to="/blog/loyalty-behavioral-drivers" className="text-purple-400 hover:text-purple-300">
+                    Read more →
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-background/50 p-4 rounded-xl flex items-start gap-3">
+              <div className="p-2 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                <Settings size={24} className="text-purple-400" />
+              </div>
+              <div>
+                <p className="font-heading mb-1">100% Blockchain Security</p>
+                <p className="text-text-secondary text-sm">
+                  All reward points, tokens, and gift cards are stored on-chain—eliminate fraud and breakage risk.{' '}
+                  <Link to="/blog/loyalty-app-security" className="text-purple-400 hover:text-purple-300">
+                    Read more →
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 text-center">
+              <Button variant="secondary">
+                <Link to="/blog">Explore All Insights</Link>
+              </Button>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </div>

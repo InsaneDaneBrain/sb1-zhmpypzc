@@ -1,5 +1,7 @@
 /**
  * Enhanced Landing Page with refined mobile spacing and section gaps
+ * - Added new Branded Tokens section between Pricing and Vendors
+ * - Reordered sections: Features → How It Works → Branded Tokens → Vendors → Pricing → Waitlist
  */
 import React, { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -88,6 +90,53 @@ const LandingPage: React.FC<LandingPageProps> = ({
             <HowItWorks />
           </Container>
         </Section>
+
+        {/* ===== BRANDED TOKENS SECTION ===== */}
+        <section id="branded-tokens" className="py-16 bg-background">
+          <Container>
+            <div className="text-center">
+              <h2 className="text-3xl md:text-4xl font-heading mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-teal-400">
+                  Your Own Branded Token Ecosystem
+                </span>
+              </h2>
+              <p className="text-text-secondary max-w-2xl mx-auto mb-8 text-lg">
+                In addition to our shared community currency, every merchant can launch their own Brand Tokens—fully tokenized rewards that live in your customers' wallets.  
+                Migrate your existing program data or start fresh with a custom token you control.  
+                Let your customers trade BTs for discounts, freebies, VIP access, and anything you choose.
+              </p>
+              <div className="flex flex-col md:flex-row justify-center gap-6">
+                <div className="bg-background-secondary rounded-xl p-6 flex-1 border border-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <h3 className="text-xl font-heading text-white mb-2">Seamless Migration</h3>
+                  <p className="text-text-secondary text-sm">
+                    Upload your legacy points or punch-card data in one click and convert balances to your new Brand Tokens.
+                  </p>
+                </div>
+                <div className="bg-background-secondary rounded-xl p-6 flex-1 border border-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <h3 className="text-xl font-heading text-white mb-2">Total Control</h3>
+                  <p className="text-text-secondary text-sm">
+                    Define earn rates, expiration rules, redemption tiers—or run time-limited campaigns and special drops.
+                  </p>
+                </div>
+                <div className="bg-background-secondary rounded-xl p-6 flex-1 border border-gray-800 hover:border-purple-500 transition-all duration-300">
+                  <h3 className="text-xl font-heading text-white mb-2">Deep Engagement</h3>
+                  <p className="text-text-secondary text-sm">
+                    Let customers collect, trade, and redeem BTs—all on-chain.  
+                    Create scarcity, gamify your program, or unlock VIP experiences.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-8">
+                <a
+                  href="/features/branded-tokens"
+                  className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity duration-300"
+                >
+                  Learn About Brand Tokens
+                </a>
+              </div>
+            </div>
+          </Container>
+        </section>
         
         <Section id="vendors" noPadding>
           <Container>

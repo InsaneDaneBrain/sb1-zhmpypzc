@@ -1,6 +1,8 @@
 /**
  * This file contains all the data for the Block Rewards marketing website
  * Updated pricing tiers with transaction limits and Enterprise messaging
+ * - Added Waitlist navigation link
+ * - Updated Vendors nav link to point to Branded Tokens section
  */
 
 import { 
@@ -17,7 +19,7 @@ import { Feature, PricingTier, Announcement, NavLink } from '../types';
 export const navLinks: NavLink[] = [
   { id: 1, label: 'Features', href: '#features' },
   { id: 2, label: 'How It Works', href: '#how-it-works' },
-  { id: 3, label: 'Vendors', href: '#vendors' },
+  { id: 3, label: 'Vendors', href: '#branded-tokens' },
   { id: 4, label: 'Pricing', href: '#pricing' },
   { id: 5, label: 'Waitlist', href: '#waitlist' },
 ];

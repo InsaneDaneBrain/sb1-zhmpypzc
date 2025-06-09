@@ -10,7 +10,7 @@ const Blog: React.FC = () => {
     {
       key: "growth",
       title: "How Loyalty Programs Boost Business Growth: Insights from NielsenIQ",
-      date: "June 15, 2025",
+      date: "May 31, 2025",
       excerpt: "Loyalty programs aren't just a \"nice to have\"--they're a proven driver of incremental revenue and customer lifetime value.",
       alt: "Growth chart analytics dashboard",
       slug: "/blog/loyalty-growth-insights"

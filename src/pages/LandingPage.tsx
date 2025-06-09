@@ -2,6 +2,7 @@
  * Enhanced Landing Page with refined mobile spacing and section gaps
  * - Added new Branded Tokens section between Pricing and Vendors
  * - Reordered sections: Features → How It Works → Branded Tokens → Vendors → Pricing → Waitlist
+ * - Fixed Branded Tokens button to use React Router Link instead of href
  */
 import React, { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -17,6 +18,7 @@ import PricingSection from '../components/Pricing/PricingSection';
 import WaitlistForm from '../components/Waitlist/WaitlistForm';
 import Footer from '../components/Footer/Footer';
 import { scroller } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 interface LandingPageProps {
   logoUrl?: string;
@@ -127,12 +129,12 @@ const LandingPage: React.FC<LandingPageProps> = ({
                 </div>
               </div>
               <div className="mt-8">
-                <a
-                  href="/features/branded-tokens"
+                <Link
+                  to="/features/branded-tokens"
                   className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity duration-300"
                 >
                   Learn About Brand Tokens
-                </a>
+                </Link>
               </div>
             </div>
           </Container>

@@ -3,6 +3,7 @@
  * Updated pricing tiers with transaction limits and Enterprise messaging
  * - Added Waitlist navigation link
  * - Updated Vendors nav link to point to Branded Tokens section
+ * - Updated launch date from Q3 2025 to Q1 2026
  */
 
 import { 
@@ -129,7 +130,7 @@ export const pricingTiers: PricingTier[] = [
 export const announcements: Announcement[] = [
   {
     id: 1,
-    title: 'Pilot Launch Q3 2025',
+    title: 'Pilot Launch Q1 2026',
     description: 'Block Rewards will be launching our first neighborhood pilot in select cities. Join the waitlist to be considered.',
   },
   {

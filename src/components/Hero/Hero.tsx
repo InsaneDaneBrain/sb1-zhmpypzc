@@ -1,5 +1,6 @@
 /**
  * Enhanced Hero section with refined mobile spacing and logo container margins
+ * - Updated launch date from Q3 2025 to Q1 2026
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -38,7 +39,7 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick }) => {
               className="inline-block mb-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30"
             >
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                Coming Q3 2025
+                Coming Q1 2026
               </span>
             </motion.div>
 

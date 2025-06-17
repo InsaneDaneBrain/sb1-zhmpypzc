@@ -1,8 +1,10 @@
 /**
- * Enhanced Landing Page with refined mobile spacing and section gaps
+ * Enhanced Landing Page with significantly reduced spacing between sections
+ * - Reduced section margins and padding by approximately 75%
  * - Added new Branded Tokens section between Pricing and Vendors
  * - Reordered sections: Features → How It Works → Branded Tokens → Vendors → Pricing → Waitlist
  * - Fixed Branded Tokens button to use React Router Link instead of href
+ * - Applied max-w-7xl mx-auto to all section wrappers
  */
 import React, { useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -65,8 +67,8 @@ const LandingPage: React.FC<LandingPageProps> = ({
       <Hero onWaitlistClick={scrollToWaitlist} />
 
       <div className="relative">
-        <Section noPadding className="md:translate-y-[-30%] translate-y-[-15%] mb-8 md:mb-12">
-          <Container>
+        <Section noPadding className="md:translate-y-[-30%] translate-y-[-15%] mb-3">
+          <Container className="max-w-7xl mx-auto">
             <AnnouncementCarousel />
           </Container>
         </Section>
@@ -75,9 +77,9 @@ const LandingPage: React.FC<LandingPageProps> = ({
           id="features"
           title="Features"
           subtitle="Everything you need to build a thriving community of loyal customers"
-          className="mt-[-2rem] md:mt-[-4rem]"
+          className="mt-[-2rem] md:mt-[-4rem] mb-3"
         >
-          <Container>
+          <Container className="max-w-7xl mx-auto">
             <FeaturesGrid />
           </Container>
         </Section>
@@ -86,16 +88,16 @@ const LandingPage: React.FC<LandingPageProps> = ({
           id="how-it-works"
           title="How It Works"
           subtitle="A simple, transparent process for both users and businesses"
-          className="mt-[-3rem]"
+          className="mb-3"
         >
-          <Container>
+          <Container className="max-w-7xl mx-auto">
             <HowItWorks />
           </Container>
         </Section>
 
         {/* ===== BRANDED TOKENS SECTION ===== */}
-        <section id="branded-tokens" className="py-16 bg-background">
-          <Container>
+        <section id="branded-tokens" className="py-3 bg-background mb-3">
+          <Container className="max-w-7xl mx-auto">
             <div className="text-center">
               <h2 className="text-3xl md:text-4xl font-heading mb-4">
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-teal-400">
@@ -140,8 +142,8 @@ const LandingPage: React.FC<LandingPageProps> = ({
           </Container>
         </section>
         
-        <Section id="vendors" noPadding>
-          <Container>
+        <Section id="vendors" noPadding className="mb-3">
+          <Container className="max-w-7xl mx-auto">
             <VendorCTA onApplyClick={() => scrollToWaitlist(true)} />
           </Container>
         </Section>
@@ -150,8 +152,9 @@ const LandingPage: React.FC<LandingPageProps> = ({
           id="pricing"
           title="Pricing"
           subtitle="Plans that grow with your business"
+          className="mb-3"
         >
-          <Container>
+          <Container className="max-w-7xl mx-auto">
             <PricingSection />
           </Container>
         </Section>
@@ -161,7 +164,7 @@ const LandingPage: React.FC<LandingPageProps> = ({
           title="Join the Waitlist"
           subtitle="Be among the first to experience our platform"
         >
-          <Container>
+          <Container className="max-w-7xl mx-auto">
             <WaitlistForm preSelectVendor={preSelectVendor} />
           </Container>
         </Section>

@@ -1,5 +1,7 @@
 /**
- * Enhanced Hero section with refined mobile spacing and logo container margins
+ * Enhanced Hero section with reduced spacing and tighter layout
+ * - Reduced section padding and margins significantly
+ * - Maintained visual hierarchy while compacting vertical space
  * - Updated launch date from Q3 2025 to Q1 2026
  */
 import React from 'react';
@@ -21,10 +23,10 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick }) => {
   ];
 
   return (
-    <section className="relative min-h-[65vh] md:min-h-[70vh] flex items-center pt-4 md:pt-0 mt-16 md:mt-0 overflow-hidden">
+    <section className="relative min-h-[65vh] md:min-h-[70vh] flex items-center pt-4 md:pt-0 mt-16 md:mt-0 overflow-hidden mb-4">
       <NeonParticles />
       
-      <Container>
+      <Container className="max-w-7xl mx-auto">
         <div className="relative z-10 max-w-5xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -108,7 +110,7 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick }) => {
               className="text-center"
             >
               <p className="text-text-secondary mb-1 text-lg">Trusted by leading platforms</p>
-              <div className="bg-gradient-to-b from-background via-transparent to-background py-2 relative z-20 mb-32 md:mb-0">
+              <div className="bg-gradient-to-b from-background via-transparent to-background py-3 relative z-20 mb-3">
                 <Marquee
                   gradient={true}
                   speed={40}

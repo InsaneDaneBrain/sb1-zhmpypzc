@@ -1,8 +1,10 @@
 /**
- * Enhanced Navbar component with customizable branding support
- * - Updated navigation links to use React Router Link with hash navigation
- * - Added smooth scroll handling for hash links
- * - Fixed waitlist link to use correct hash
+ * Enhanced Navbar component with larger, more prominent styling
+ * - Logo height increased to 48px with proportional scaling
+ * - Navigation links increased to 18px font-size with 1.2 line-height
+ * - Header padding reduced to py-1 (4px top/bottom)
+ * - CTA button styling enhanced with larger padding
+ * - Maintained responsive design and proper alignment
  */
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -43,8 +45,8 @@ const Navbar: React.FC<NavbarProps> = ({
   }, [scrolled]);
 
   const navbarClasses = scrolled
-    ? 'py-3 bg-background/80 backdrop-blur-sm border-b border-gray-800'
-    : 'py-4 bg-transparent';
+    ? 'py-1 bg-background/80 backdrop-blur-sm border-b border-gray-800'
+    : 'py-1 bg-transparent';
 
   const handleNavClick = () => {
     setIsOpen(false);
@@ -52,7 +54,7 @@ const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navbarClasses}`}>
-      <Container className="flex justify-between items-center">
+      <Container className="flex justify-between items-center px-4">
         <Logo logoUrl={logoUrl} brandName={brandName} />
 
         {/* Desktop Navigation */}
@@ -62,7 +64,8 @@ const Navbar: React.FC<NavbarProps> = ({
               <li key={link.id}>
                 <Link
                   to={`/${link.href}`}
-                  className="font-body text-lg text-text-secondary hover:text-white transition-colors duration-300"
+                  className="font-body text-lg leading-tight text-text-secondary hover:text-white transition-colors duration-300"
+                  style={{ lineHeight: '1.2' }}
                   onClick={handleNavClick}
                 >
                   {link.label}
@@ -70,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({
               </li>
             ))}
           </ul>
-          <Button variant="primary" className="text-lg">
+          <Button variant="primary" className="px-6 py-2 text-base">
             <Link to="/#waitlist" onClick={onWaitlistClick}>
               Join Waitlist
             </Link>
@@ -119,7 +122,7 @@ const Navbar: React.FC<NavbarProps> = ({
                 ))}
               </ul>
               <div className="mt-12">
-                <Button variant="primary" className="w-full text-lg">
+                <Button variant="primary" className="w-full px-6 py-2 text-base">
                   <Link 
                     to="/#waitlist" 
                     onClick={() => {

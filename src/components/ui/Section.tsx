@@ -1,5 +1,7 @@
 /**
- * Enhanced Section component with improved gradient transitions and spacing
+ * Enhanced Section component with significantly reduced spacing
+ * - Reduced default padding from py-12 md:py-16 to py-3
+ * - Maintained gradient transitions and spacing
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -42,11 +44,9 @@ const Section: React.FC<SectionProps> = ({
   return (
     <section 
       id={id} 
-      className={`relative ${!noPadding ? 'py-12 md:py-16' : ''} ${className}`}
+      className={`relative ${!noPadding ? 'py-3' : ''} ${className}`}
       ref={ref}
     >
-      {/* Removed top gradient that was causing the issue */}
-      
       {/* Bottom gradient now has reduced opacity and better transition */}
       <div className="absolute inset-x-0 -bottom-24 h-24 bg-gradient-to-t from-background/50 to-transparent pointer-events-none" />
 
@@ -57,7 +57,7 @@ const Section: React.FC<SectionProps> = ({
         className="relative z-20"
       >
         {(title || subtitle) && (
-          <div className="text-center mb-8 md:mb-12">
+          <div className="text-center mb-3">
             {title && (
               <motion.div variants={variants} className="inline-block">
                 <span className="inline-block px-4 py-1 text-sm rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-400 mb-4">

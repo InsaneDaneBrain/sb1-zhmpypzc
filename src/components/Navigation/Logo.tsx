@@ -1,5 +1,6 @@
 /**
  * Logo component with 48px height and proportional scaling
+ * - Reverted logo path back to working BR_LOGO_new.png
  * - Set logo height to 48px with auto width for proportional scaling
  * - Used object-fit: contain for proper scaling
  * - Maintained fallback to Lucide icon if image fails to load

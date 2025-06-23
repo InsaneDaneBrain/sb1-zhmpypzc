@@ -3,6 +3,7 @@
  * - Reduced section padding and margins significantly
  * - Maintained visual hierarchy while compacting vertical space
  * - Updated launch date from Q3 2025 to Q1 2026
+ * - Added working YouTube video player after CTA buttons, before "Trusted by" logos
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -10,6 +11,7 @@ import Tilt from 'react-parallax-tilt';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 import NeonParticles from './NeonParticles';
+import HeroVideo from './HeroVideo';
 import Marquee from 'react-fast-marquee';
 
 interface HeroProps {
@@ -103,10 +105,20 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick }) => {
               </Button>
             </motion.div>
 
+            {/* Hero Video Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
+              className="mb-4 md:mb-6"
+            >
+              <HeroVideo />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
               className="text-center"
             >
               <p className="text-text-secondary mb-1 text-lg">Trusted by leading platforms</p>

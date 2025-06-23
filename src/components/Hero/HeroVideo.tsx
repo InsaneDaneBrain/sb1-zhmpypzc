@@ -1,10 +1,10 @@
 /**
  * Hero Video component with YouTube video player
  * - Updated to play specific YouTube video: pm8aKivcWH8
- * - Embeds YouTube video with autoplay and muted settings
- * - Responsive design with rounded corners
- * - Click to toggle controls visibility
- * - Uses YouTube nocookie domain for privacy
+ * - Fixed spacing to prevent overlap with header - added mt-6 sm:mt-8
+ * - Added proper z-index stacking and responsive height
+ * - Changed to object-contain to prevent video cropping
+ * - Added padding for better visual breathing room
  */
 import React, { useState } from 'react';
 import { Play, Volume2, VolumeX } from 'lucide-react';
@@ -25,11 +25,12 @@ const HeroVideo: React.FC = () => {
   };
 
   return (
-    <section className="video-section w-full overflow-hidden mb-4">
-      <div className="relative w-full h-64 md:h-96 rounded-xl overflow-hidden bg-black group">
+    <section className="video-section relative z-0 w-full mt-6 sm:mt-8 mb-4 py-4">
+      <div className="relative w-full h-48 sm:h-64 md:h-96 rounded-xl overflow-hidden bg-black group mx-auto max-w-4xl">
         {/* YouTube iframe */}
         <iframe
-          className="w-full h-full object-cover"
+          className="w-full h-full rounded-xl"
+          style={{ objectFit: 'contain' }}
           src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=${showControls ? 1 : 0}&modestbranding=1&playsinline=1&rel=0&showinfo=0`}
           title="Block Rewards Demo Video"
           frameBorder="0"

@@ -1,9 +1,10 @@
 /**
- * Enhanced Hero section with reduced spacing and tighter layout
+ * Enhanced Hero section with proper spacing for bigger header
  * - Reduced section padding and margins significantly
  * - Maintained visual hierarchy while compacting vertical space
  * - Updated launch date from Q3 2025 to Q1 2026
  * - Added working YouTube video player after CTA buttons, before "Trusted by" logos
+ * - Adjusted top spacing to accommodate much larger header (pt-32 md:pt-40)
  */
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -25,7 +26,7 @@ const Hero: React.FC<HeroProps> = ({ onWaitlistClick }) => {
   ];
 
   return (
-    <section className="relative min-h-[65vh] md:min-h-[70vh] flex items-center pt-4 md:pt-0 mt-16 md:mt-0 overflow-hidden mb-4">
+    <section className="relative min-h-[65vh] md:min-h-[70vh] flex items-center pt-32 md:pt-40 mt-8 md:mt-12 overflow-hidden mb-4">
       <NeonParticles />
       
       <Container className="max-w-7xl mx-auto">

@@ -1,10 +1,12 @@
 /**
- * Enhanced Navbar component with larger, more prominent styling
+ * Enhanced Navbar component with much larger, more prominent styling
  * - Logo height increased to 48px with proportional scaling
  * - Navigation links increased to 18px font-size with 1.2 line-height
- * - Header padding reduced to py-1 (4px top/bottom)
+ * - Header padding significantly increased to py-8 md:py-12 for much bigger feel
+ * - Added substantial minimum height for pronounced presence
  * - CTA button styling enhanced with larger padding
  * - Maintained responsive design and proper alignment
+ * - Fixed z-index to ensure header stays above all content
  */
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
@@ -45,16 +47,16 @@ const Navbar: React.FC<NavbarProps> = ({
   }, [scrolled]);
 
   const navbarClasses = scrolled
-    ? 'py-1 bg-background/80 backdrop-blur-sm border-b border-gray-800'
-    : 'py-1 bg-transparent';
+    ? 'py-6 md:py-8 bg-background/80 backdrop-blur-sm border-b border-gray-800'
+    : 'py-8 md:py-12 bg-transparent';
 
   const handleNavClick = () => {
     setIsOpen(false);
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navbarClasses}`}>
-      <Container className="flex justify-between items-center px-4">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 min-h-[6rem] md:min-h-[8rem] ${navbarClasses}`}>
+      <Container className="flex justify-between items-center px-4 h-full">
         <Logo logoUrl={logoUrl} brandName={brandName} />
 
         {/* Desktop Navigation */}
